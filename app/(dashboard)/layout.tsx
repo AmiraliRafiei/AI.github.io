@@ -1,4 +1,4 @@
-import Navbar from "@/components/navbar";
+import { Navbar } from "@/components/navbar";
 import Sidebar from "@/components/sidebar";
 import { getApiLimitCount } from "@/lib/api-limit";
 import { checkSubscribe } from "@/lib/subscription";
@@ -10,11 +10,12 @@ const DashboardLayout = async ({
 }) => {
   const apiLimitCount = await getApiLimitCount();
   const isPro = await checkSubscribe();
+  const IsPro = Boolean( isPro[0])
 
   return ( 
     <div className="h-full relative">
       <div className="hidden h-full md:flex md:w-72 md:flex-col md:fixed md:inset-y-0 bg-gray-900">
-        <Sidebar isPro={isPro} apiLimitCount={apiLimitCount} />
+        <Sidebar isPro={IsPro} apiLimitCount={apiLimitCount} />
       </div>
       <main className="md:pl-72 pb-10">
         <Navbar />
