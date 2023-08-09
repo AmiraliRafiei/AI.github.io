@@ -5,13 +5,14 @@ import { Settings } from "lucide-react";
 
 const SettingsPage = async () => {
   const a = await checkSubscribe();
+  const end = Number(a[1])
 
   return ( 
     <div>
       <Heading 
         title="Settings"
         description="Mannage account settings."
-        icon={Settings}
+        icon={Settings} 
         iconColor="text-gray-700"
         bgColor="bg-gray-700/10"
       />
@@ -19,7 +20,7 @@ const SettingsPage = async () => {
         <div className="text-muted-foreground text-sm">
           {a[0] ? "You are currently on a pro plan." : "You are currently on a free plan. (Go to store to upgrade)"}
           <br />
-          {a[0] ? `${a[1]-1} day left`  : ""}
+          {a[0] ? `${end-1} day left`  : ""}
         </div>
       </div>
     </div>

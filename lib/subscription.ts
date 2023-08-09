@@ -24,7 +24,7 @@ export const checkSubscribe = async () => {
   });
 
   if (!userSubscription) {
-    return false;
+    return [false, 0];
   }
 
   const isValid = 
